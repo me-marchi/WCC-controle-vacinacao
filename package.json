@@ -1,12 +1,21 @@
 {
-  "name": "wcc-controle-vacinacao",
-  "version": "1.0.0",
-  "description": "projeto de API sobre controle de vacinas para a formação WCC",
-  "main": "server.js",
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "nodemon": "^2.0.12",
+    "pg": "^8.7.1",
+    "pg-hstore": "^2.3.4",
+    "sequelize": "^6.12.0-alpha.1",
+    "serve": "^13.0.2"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
+  "name": "wcc-controle-vacinacao",
+  "version": "1.0.0",
+  "description": "projeto de API sobre controle de vacinas para a formação WCC",
+  "main": "server.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/me-marchi/WCC-controle-vacinacao.git"
@@ -16,14 +25,5 @@
   "bugs": {
     "url": "https://github.com/me-marchi/WCC-controle-vacinacao/issues"
   },
-  "homepage": "https://github.com/me-marchi/WCC-controle-vacinacao#readme",
-  "dependencies": {
-    "dotenv": "^10.0.0",
-    "express": "^4.17.1",
-    "nodemon": "^2.0.12",
-    "pg": "^8.7.1",
-    "pg-hstore": "^2.3.4",
-    "sequelize": "^6.12.0-alpha.1",
-    "serve": "^13.0.2"
-  }
+  "homepage": "https://github.com/me-marchi/WCC-controle-vacinacao#readme"
 }
