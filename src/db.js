@@ -12,9 +12,9 @@ const database = new Sequelize(process.env.DATABASE_URL, {
 });
 
 database
-.authenticate()
-.then(() => console.log("Banco de dados conectado com sucesso."))
-.catch(() => console.log("Não foi possível conectar ao banco de dados."));
+    .authenticate()
+    .then(() => console.log("Banco de dados conectado com sucesso."))
+    .catch(() => console.log("Não foi possível conectar ao banco de dados."));
 
 module.exports = {
     database,
