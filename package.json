@@ -10,7 +10,8 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server.js"
+    "postinstall": "npm run build",
+    "start": "node server.js"
   },
   "name": "wcc-controle-vacinacao",
   "version": "1.0.0",
