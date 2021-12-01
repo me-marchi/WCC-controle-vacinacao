@@ -9,7 +9,7 @@
     "serve": "^13.0.2"
   },
   "scripts": {
-    "start": "nodemon server.js"
+    "start": "node server.js"
   },
   "name": "wcc-controle-vacinacao",
   "version": "1.0.0",
