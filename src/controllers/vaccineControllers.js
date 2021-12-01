@@ -17,11 +17,8 @@ const getAllVaccines = async (req, res) => {
     try {
         const where = favorite ? { where: { favorite } }: {}
         const vaccine = await Vaccine.findAll(where);
-        if (vaccine && vaccine.length > 0) {
-            res.status(200).send(vaccine);
-        } else {
-            res.status(204).send();
-        };
+
+        vaccine && vaccine.length > 0 ? res.status(200).send(vaccine) : res.status(204).send();
     } catch (error) {
         messageError(res, error);
     };
@@ -33,11 +30,8 @@ const getVaccine = async (req, res) => {
         const vaccine = await Vaccine.findOne({
             where: { id: vaccineId }
         });
-        if (vaccine) {
-            res.status(200).send(vaccine)
-        } else {
-            res.status(404).send({ message: `Vacina de ID ${vaccineId} não foi encontrada.` })
-        };
+
+        vaccine ? res.status(200).send(vaccine) : res.status(404).send({ message: `Vacina de ID ${vaccineId} não foi encontrada.` });
     } catch (error) {
         messageError(res, error);
     };
@@ -48,11 +42,8 @@ const updateVaccinated = async (req, res) => {
     const vaccinated = req.body.vaccinated;
     try {
         const rowsUpdated = await Vaccine.update({ vaccinated }, { where: { id: vaccineId} });
-        if (rowsUpdated && rowsUpdated > 0) {
-            res.status(200).send({message: `${rowsUpdated[0]} informação de vacina atualizada com sucesso` });
-        } else {
-            res.status(404).send({ message: `Vacina com ID ${vaccineId} não encontrada para atualizar informação.` }); 
-        };
+        
+        rowsUpdated && rowsUpdated > 0 ? res.status(200).send({message: `${rowsUpdated[0]} informação de vacina atualizada com sucesso` }) : res.status(404).send({ message: `Vacina com ID ${vaccineId} não encontrada para atualizar informação.` }); 
     } catch (error) {
         messageError(res, error);
     };
@@ -62,11 +53,8 @@ const deleteVaccine = async (req, res) => {
     const vaccineId = req.params.id;
     try {
         const rowsDeleted = await Vaccine.destroy({ where: { id: vaccineId } });
-        if (rowsDeleted) {
-            res.status(200).send({ message: `Vacina com ID ${vaccineId} deletada com sucesso` });
-        } else {
-            res.status(404).send({ message: `Vacina com ID ${vaccineId} não encontrada para deletar` });
-        };
+        
+        rowsDeleted ? res.status(200).send({ message: `Vacina com ID ${vaccineId} deletada com sucesso` }) : res.status(404).send({ message: `Vacina com ID ${vaccineId} não encontrada para deletar` });
     } catch (error) {
         messageError(res, error);
     };
@@ -75,7 +63,6 @@ const deleteVaccine = async (req, res) => {
 const messageError = (res, error) => {
     res.status(500).send({ message: error.message });
 };
-
 
 module.exports = {
     createVaccine,
